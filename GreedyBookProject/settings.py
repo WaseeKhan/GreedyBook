@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #define static files and static media here
-STATATICFILES_DIRS = [
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticProject')
 ]
 STATIC_ROOT = os.path.join(os.path.join(BASE_DIR), "static_cdn", "static_root")

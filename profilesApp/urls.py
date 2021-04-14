@@ -1,28 +1,11 @@
-"""GreedyBookProject URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
+
 from django.urls import path
-from django.conf import settings # import settings
-from django.conf.urls.static import static  #import static here
-from .views import home_view
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', home_view, name='home-view'),
-]
+from .views import my_profile_view
 
-urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
-#run py manage.py collectstatic
+app_name = 'profilesApp'
+
+urlpatterns = [
+    path('myprofile/',my_profile_view, name='my-profile-view'),
+
+]
