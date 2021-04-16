@@ -1,0 +1,1 @@
+default_app_config='postsApp.apps.PostsappConfig'
