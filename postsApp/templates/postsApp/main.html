@@ -17,10 +17,19 @@ posts
                     {{obj.content}}
                 </div>
                 <div class="content">
-                    <form action="" method="POST">
+                    <form action="{% url 'postsApp:like-post-view' %}" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="post_id" value={{obj.id}}>
-                    <button class="ui primary button">Like</button>
+                    <button class="ui primary button" type="submit">
+
+                    {% if profile not in obj.liked.all %}
+                        <i class="thumbs up icon"></i> &nbsp; Like
+                    {% else %}
+                        <i class="thumbs down icon"></i> &nbsp; Unlike
+                     {% endif %}
+                        &nbsp; {{obj.num_likes}}
+                    </button>
+                        <!-- {{obj.num_likes}} -->
                     </form>
                 </div>
             </div>
@@ -29,6 +38,7 @@ posts
         </div>
         <div class="five wide column">
             Form
+
         </div>
     </div>
 </div>
