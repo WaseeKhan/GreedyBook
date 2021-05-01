@@ -12,6 +12,9 @@ body{
 .mt-5 {
     margin-top: 5px !important;
 }
+.w-big{
+    width:200px !important;
+}
 .mymodel{
     height:300px !important;
     top:200px !important;

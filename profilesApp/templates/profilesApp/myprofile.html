@@ -10,7 +10,7 @@ my Profile
   <i class="close icon"></i>
   <div class="header">Update Your profile</div>
   <div class="image content">
-    <div class="ui medium image"><img src="{{profile.avatar.url}}"></div>
+    <div class="ui medium circular  image"><img src="{{profile.avatar.url}}"></div>
     <div class="description">
       <div class="ui header">Provide Feature Information About you</div>
       <form action="" method="POST" class ="ui form" enctype="multipart/form-data">
@@ -27,11 +27,12 @@ my Profile
   {% if confirm %}
 <div class="ui teal message">Your profile has been updated</div>
 {% endif %}
+
   <h3>My Profile: {{request.user}}</h3>
   <div class="ui grid">
   <div class="row">
     <div class="six wide column">
-    <img class="ui medium rounded image" src="{{profile.avatar.url}}">
+    <img class="ui medium circular image" src="{{profile.avatar.url}}">
       <div class="row mt-5">
         <button class="ui secondary button" id="modal-btn">Update your profile</button>
       </div>
