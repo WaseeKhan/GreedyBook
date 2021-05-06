@@ -5,7 +5,7 @@ from .models import Post, Like
 from profilesApp.models import Profile
 from .forms import PostModelForm, CommentModelForm
 from django.views.generic import UpdateView, DeleteView
-
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -59,13 +59,22 @@ def like_unlike_post(request):
         else:
             post_obj.liked.add(profile)
         like, created = Like.objects.get_or_create(user=profile, post_id=post_id)
+
         if not created:
             if like.value == 'Like':
                 like.value = 'Unlike'
             else:
                 like.value = 'Like'
+        else:
+            like.value='Like'
+
             post_obj.save()
             like.save()
+        data = {
+            'value':like.value,
+            'likes':post_obj.liked.all().count()
+        }
+        return JsonResponse(data, safe=False)
     return redirect('postsApp:main-post-view')
 
 
