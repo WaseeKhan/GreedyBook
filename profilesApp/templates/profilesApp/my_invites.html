@@ -20,7 +20,7 @@ My Invites
                      <div class="thirteen wide column">
                         <h3>{{obj.user}}</h3>
                          <p>{{obj.bio}}</p>
-                         <a href=""><button class="ui primary button w-big mb-5">See Profile</button></a>
+                         <a href="{{obj.get_absolute_url}}"><button class="ui primary button w-big mb-5">See Profile</button></a>
 
                          <form action="{% url 'profiles:accept-invite' %}" method="POST">
                              {% csrf_token %}
