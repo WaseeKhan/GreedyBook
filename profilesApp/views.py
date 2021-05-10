@@ -93,7 +93,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         # context["Hello"] = "Hello World"
-        #user = User.objects.get(username__iexact=self.request.user)
+        user = User.objects.get(username__iexact=self.request.user)
         profile = Profile.objects.get(user=self.request.user)
         context['profile'] = profile
         rel_r = Relationship.objects.filter(sender=profile)
@@ -125,7 +125,7 @@ class ProfilelistView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         # context["Hello"] = "Hello World"
         #user = User.objects.get(username__iexact=self.request.user)
-        profile = Profile.objects.get(user=user)
+        profile = Profile.objects.get(user=self.request.user)
         context['profile'] = profile
         rel_r = Relationship.objects.filter(sender=profile)
         rel_s = Relationship.objects.filter(receiver=profile)
