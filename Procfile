@@ -1,1 +1,2 @@
-web: gunicorn GreedyBookProject.wsgi
+web: gunicorn GreedyBookProject.wsgi --log-file -
+--log-file -
